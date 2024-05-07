@@ -14,6 +14,4 @@ public class UsuarioServico {
     public UsuarioModelo salvarUsuario(UsuarioModelo usuario) {
         return usuarioRepositorio.save(usuario);
     }
-
-    // Outros métodos de serviço aqui
 }

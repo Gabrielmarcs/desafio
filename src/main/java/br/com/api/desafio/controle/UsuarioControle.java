@@ -27,13 +27,24 @@ public class UsuarioControle {
 
     @PostMapping("/comum")
     public ResponseEntity<UsuarioComumModelo> addUsuarioComum(@RequestBody UsuarioComumModelo usuarioComum){
-        UsuarioComumModelo novoUsuarioComum = usuarioComumR.save(usuarioComum);
-        return new ResponseEntity<>(novoUsuarioComum, HttpStatus.CREATED);
+        try {
+            UsuarioComumModelo novoUsuarioComum = usuarioComumR.save(usuarioComum);
+            return new ResponseEntity<>(novoUsuarioComum, HttpStatus.CREATED);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
 
     @PostMapping("/lojista")
     public ResponseEntity<UsuarioLojistaModelo> addUsuarioLojista(@RequestBody UsuarioLojistaModelo usuarioLojista){
-        UsuarioLojistaModelo novoUsuarioLojista = usuarioLojistaR.save(usuarioLojista);
-        return new ResponseEntity<>(novoUsuarioLojista, HttpStatus.CREATED);
+        try {
+            UsuarioLojistaModelo novoUsuarioLojista = usuarioLojistaR.save(usuarioLojista);
+            return new ResponseEntity<>(novoUsuarioLojista, HttpStatus.CREATED);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
+
 }

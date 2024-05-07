@@ -23,5 +23,5 @@ public abstract class UsuarioModelo {
     @Column(unique = true)
     private String email;
     private String senha;
-    
+    private double saldo = 0;
 }
